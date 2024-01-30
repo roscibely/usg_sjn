@@ -10,17 +10,19 @@ def shortest_job_next_usg(processes):
     urgency_factor = [0] * n
     seriousness_factor = [0] * n
     growth_factor = [0] * n
+    cost_factor = [0] * n
 
     for i in range(n):
         time[i] = processes[i][1]
         urgency_factor[i] = processes[i][2]
         seriousness_factor[i] = processes[i][3]
         growth_factor[i] = processes[i][4]
+        cost_factor[i] = processes[i][5] # added variable PHAB
 
     total_waiting_time = 0
 
     # Sort processes based on the urgency-seriousness-growth (USG) method
-    processes.sort(key=lambda x: (-x[2], -x[3], -x[4], x[1]))
+    processes.sort(key=lambda x: (-x[2], -x[3], -x[4], x[1], x[5]))
 
     # Calculate waiting time for each process
     for i in range(n):
@@ -36,6 +38,7 @@ def shortest_job_next_usg(processes):
           'urgency': urgency_factor,
           'seriousness': seriousness_factor,
           'growth': growth_factor
+          'cost': cost_factor
       })
     data_ = pd.DataFrame(data)
     return data_
