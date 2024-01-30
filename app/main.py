@@ -31,7 +31,7 @@ def shortest_job_next_usg(processes):
     average_waiting_time = sum(waiting_time) / n
 
     data = []
-    for id, time, urgency_factor, seriousness_factor, growth_factor in processes:
+    for id, time, urgency_factor, seriousness_factor, growth_factor, cost_factor in processes:
         data.append({
           'task': id,
           'time': time,
