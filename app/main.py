@@ -37,7 +37,7 @@ def shortest_job_next_usg(processes):
           'time': time,
           'urgency': urgency_factor,
           'seriousness': seriousness_factor,
-          'growth': growth_factor
+          'growth': growth_factor,
           'cost': cost_factor
       })
     data_ = pd.DataFrame(data)
